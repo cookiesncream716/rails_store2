@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   	puts @products
   end
   def new
+    @categories = Category.get_all
   end
   def show
   	@product = Product.get_one(params[:id])
@@ -12,5 +13,8 @@ class ProductsController < ApplicationController
   end
   def edit
     @product = Product.get_one(params[:id])
+    @categories = Category.get_all
+  end
+  def update
   end
 end

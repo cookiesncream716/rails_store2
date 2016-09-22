@@ -5,7 +5,9 @@
 	<div class='form-group'>
 		<label for='category'>Category</label>
 		<select name='product[category]'>
-			<option value=''>category</option>
+			<% @categories.each do |cat| %>
+				<option value='<%= cat.id %>'><%= cat.category %></option>
+			<% end %>
 		</select>
 	</div>
 	<div class='form-group'>
@@ -22,4 +24,4 @@
 	</div>
 	<button type='submit' class='btn'>Create</button>
 </form>
-<a href='/'>Back</a>
+<a href='/'>Main Page</a>

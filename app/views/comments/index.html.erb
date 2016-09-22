@@ -1,0 +1,21 @@
+<h1>The Store</h1>
+<h2>Product Comments</h2>
+<table class='table'>
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Comment</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @comments.each do |comment| %>
+			<tr>
+				<td><%= comment.product.product %></td>
+				<td><%= comment.comment %></td>
+				<td><%= comment.created_at %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href='/'>Back</a>

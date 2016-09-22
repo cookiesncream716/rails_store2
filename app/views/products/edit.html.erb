@@ -1,16 +1,31 @@
 <h1>The Store</h1>
 <p>edit</p>
-<form action='/products/<%= @product.id %>' method='POST' role='form'>
+<form action='/products/<%= @product.id %>' method='POST' role='form' class='col-md-4'>
 	<input name='_method' value='patch' type='hidden'>
 	<input name='authenticity_token' value='<% form_authenticity_token %>' type='hidden'>
 	<div class='form-group'>
 		<label for='product'>Product</label>
-		<input type='text' name='product[product]' value='<%= @product.product %>'>
+		<input type='text' class='form-control' name='product[product]' value='<%= @product.product %>'>
 	</div>
 	<div class='form-group'>
+		<label for='description'>Description</label>
+		<input type='text' class='form-control' name='product[description]' value='<%= @product.description %>'>
 	</div>
 	<div class='form-group'>
+		<label for='price'>Price</label>
+		<input type='text' class='form-control' name='product[price]' value='<%= @product.price %>'>
 	</div>
 	<div class='form-group'>
+		<label for='category'>Category</label>
+		<select name='product[category]'>
+			<option value='<%= @product.category_id %>'><%= @product.category.category %></option>
+			<% @categories.each do |cat| %>
+				<% if cat.id == @product.category_id %>
+				<% else %>
+					<option value='<%= cat.id %>'><%= cat.category %></option>
+				<% end %>
+			<% end %>
+		</select>
 	</div>
+	<button type='submit' class='btn'>Update <%= @product.product %></button>
 </form>
