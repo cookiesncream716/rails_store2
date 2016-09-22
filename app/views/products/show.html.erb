@@ -1,16 +1,19 @@
-<ul class='col-md-2 bold'>
-	<li>Product</li>
-	<li>Description</li>
-	<li>Price</li>
-	<li>Category</li>
-</ul>
-<ul class='col-md-2'>
-	<li>prod</li>
-	<li>prod</li>
-	<li>prod</li>
-	<li>prod</li>	
-</ul>
-<a href=''>Edit</a>
+<h1>The Store</h1>
+<div class='row'>
+	<ul class='col-md-2 bold'>
+		<li>Product</li>
+		<li>Description</li>
+		<li>Price</li>
+		<li>Category</li>
+	</ul>
+	<ul class='col-md-2'>
+		<li><%= @product.product %></li>
+		<li><%= @product.description %></li>
+		<li><%= @product.price %></li>
+		<li><%= @product.category.category %></li>	
+	</ul>
+</div>
+<a href='/products/edit/<%= @product.id %>'>Edit</a>
 <a href='/'>Back</a>
 <h3>Comment:</h3>
 <form action='' method='POST' role='form'>

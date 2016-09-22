@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/products/new' => 'products#new'
   get '/products/:id' => 'products#show'
+  get '/products/edit/:id' => 'products#edit'
   # get 'products/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

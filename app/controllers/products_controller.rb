@@ -7,7 +7,10 @@ class ProductsController < ApplicationController
   def new
   end
   def show
-  	# @product = Product.get_one(params[:id])
+  	@product = Product.get_one(params[:id])
   	# @comments = Comment.get_one(params[:id])
+  end
+  def edit
+    @product = Product.get_one(params[:id])
   end
 end
