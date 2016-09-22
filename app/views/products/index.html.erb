@@ -1,0 +1,30 @@
+<h1>Welcome to The Store</h1>
+<h3>Products</h3>
+<table class='table'>
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Description</th>
+			<th>Category</th>
+			<th>Price</th>
+			<th></th>
+	</thead>
+	<tbody>
+		<% @products.each do |p| %>
+		<tr>
+			<td><%= p.product %></td>
+			<td><%= p.description %></td>
+			<td><%= p.category.category %></td>
+			<td>$<%= p.price %></td>
+			<td>
+				<ul>
+					<li><a href='/products/<%= p.id %>'>Show</a></li>
+					<li><a>Edit</a></li>
+					<li><a>Delete</a></li>
+				</ul>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href='/products/new'>Add a Product</a>

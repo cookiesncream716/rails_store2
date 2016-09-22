@@ -1,0 +1,25 @@
+<h1>The Shop</h1>
+<h3>Add a New Product</h3>
+<form action='/products/create' method='POST' role='form' class='col-md-4'>
+	<input name='authenticity_token' value='<% form_authenticity_token %>' type='hidden'>
+	<div class='form-group'>
+		<label for='category'>Category</label>
+		<select name='product[category]'>
+			<option value=''>category</option>
+		</select>
+	</div>
+	<div class='form-group'>
+		<label for='product'>Product</label>
+		<input type='text' name='product[product]' class='form-control'>
+	</div>
+	<div class='form-group'>
+		<label for='description'>Description</label>
+		<input type='text' name='product[description]' class='form-control'>
+	</div>
+	<div class='form-group'>
+		<label for='price'>Price</label>
+		<input type='text' name='product[price]' class='form-control'>
+	</div>
+	<button type='submit' class='btn'>Create</button>
+</form>
+<a href='/'>Back</a>
