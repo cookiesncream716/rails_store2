@@ -24,4 +24,11 @@
 	</div>
 	<button type='submit' class='btn'>Create</button>
 </form>
+
 <a href='/'>Main Page</a>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |err| %>
+		<p><%= err %></p>
+	<% end %>
+<% end %>

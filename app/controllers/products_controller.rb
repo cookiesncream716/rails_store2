@@ -9,14 +9,24 @@ class ProductsController < ApplicationController
 
   end
   def create
-    Product.create_product(product_params)
-    redirect_to root_path
-    # redirect_to '/'
-
+    message = Product.create_product(product_params)
+    flash[:errors] = message
+    # redirect_to root_path
+    # if flash[:errors] == 'Product successfully created and saved'
+      # redirect_to root_path and return
+    # else
+    # render '/products/new'
+    redirect_to '/products/new'
+    # end
+    #   puts @errors
+    #   flash[:errors] = @errors
+    # else
+    #   redirect_to root_path
+    # end
   end
   def show
   	@product = Product.get_one(params[:id])
-  	# @comments = Comment.get_one(params[:id])
+  	@comments = Comment.get_one(params[:id])
   end
   def edit
     @product = Product.get_one(params[:id])

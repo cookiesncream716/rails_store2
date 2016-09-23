@@ -16,16 +16,18 @@
 			<td><%= p.description %></td>
 			<td><%= p.category.category %></td>
 			<td>$<%= p.price %></td>
-			<td>
-				<ul>
-					<li><a href='/products/<%= p.id %>'>Show</a></li>
-					<li><a href='/products/<%= p.id %>/edit'>Edit</a></li>
-					<li><a href='/products/<%= p.id %>' data-method='delete'>Delete</a></li>
-				</ul>
-			</td>
+			<td><a href='/products/<%= p.id %>'>Show</a></td>
+			<td><a href='/products/<%= p.id %>/edit'>Edit</a></td>
+			<td><a href='/products/<%= p.id %>' data-method='delete'>Delete</a></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 <a href='/products/new'>Add a Product</a>
 <a href='/comments'>Comments</a>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |err| %>
+		<p><%= err %></p>
+	<% end %>
+<% end %>
