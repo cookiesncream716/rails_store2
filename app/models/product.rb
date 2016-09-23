@@ -18,4 +18,11 @@ class Product < ActiveRecord::Base
   	# self.create(product)
   	self.create(product)
   end
+  def self.update_product(id, product)
+  	puts '################ update product ################'
+  	self.find(id).update_attributes(product)
+  end
+  def self.delete(id)
+  	self.find(id).destroy
+  end
 end

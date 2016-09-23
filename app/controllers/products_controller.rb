@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
   end
   def create
     Product.create_product(product_params)
-    # redirect_to root_path
-    redirect_to '/'
+    redirect_to root_path
+    # redirect_to '/'
 
   end
   def show
@@ -23,6 +23,12 @@ class ProductsController < ApplicationController
     @categories = Category.get_all
   end
   def update
+    Product.update_product(params[:id], product_params)
+    redirect_to root_path
+  end
+  def destroy
+    Product.delete(params[:id])
+    redirect_to root_path
   end
   private
   def product_params
