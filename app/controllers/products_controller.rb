@@ -6,23 +6,12 @@ class ProductsController < ApplicationController
   end
   def new
     @categories = Category.get_all
-
   end
   def create
     message = Product.create_product(product_params)
     flash[:errors] = message
-    # redirect_to root_path
-    # if flash[:errors] == 'Product successfully created and saved'
-      # redirect_to root_path and return
-    # else
-    # render '/products/new'
+
     redirect_to '/products/new'
-    # end
-    #   puts @errors
-    #   flash[:errors] = @errors
-    # else
-    #   redirect_to root_path
-    # end
   end
   def show
   	@product = Product.get_one(params[:id])
