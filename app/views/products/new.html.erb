@@ -1,10 +1,10 @@
 <h1>The Shop</h1>
 <h3>Add a New Product</h3>
-<form action='/products/create' method='POST' role='form' class='col-md-4'>
-	<input name='authenticity_token' value='<% form_authenticity_token %>' type='hidden'>
+<form action='/products' method='POST' role='form' class='col-md-4'>
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	<div class='form-group'>
 		<label for='category'>Category</label>
-		<select name='product[category]'>
+		<select name='product[category_id]'>
 			<% @categories.each do |cat| %>
 				<option value='<%= cat.id %>'><%= cat.category %></option>
 			<% end %>
