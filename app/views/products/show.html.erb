@@ -28,4 +28,9 @@
 		<button type='submit' class='btn'>Add Comment</button>
 	</form>
 </div>
+<% if flash[:messages] %>
+	<% flash[:messages].each do |message| %>
+		<p><%= message %></p>
+	<% end %>
+<% end %>
 <a href='/'>Main Page</a>

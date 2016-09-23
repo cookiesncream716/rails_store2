@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :product
-  # validates :comment, presence: true
+  validates :comment, presence: true
   def self.get_one(id)
   	self.where(product_id: id)
   end
@@ -8,14 +8,13 @@ class Comment < ActiveRecord::Base
   	self.all
   end
   def self.create_comment(comment)
-  	# new_comment = self.new(comment)
-  	# if new_comment.valid? == true
-  	# 	new_comment.save
-  	# 	return
-  	# else
-  	# 	@message = new_comment.errors.full_messages
-  	# 	return @message	
-  	# end
-  	self.create(comment)
+  	new_comment = self.new(comment)
+  	if new_comment.valid? == true
+  		new_comment.save
+  		return
+  	else
+  		@message = new_comment.errors.full_messages
+  		return @message	
+  	end
   end
 end

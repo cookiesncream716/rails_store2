@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
 	def create
 
 		comment = Comment.create_comment(comment_params)
-		# flash[:messages] = comment
-		# redirect_to '/products/%d' %comment_params.product_id
-		redirect_to root_path
+		flash[:messages] = comment
+		redirect_to '/products/%d' %comment_params[:product_id]
 	end
 	private
 	def comment_params

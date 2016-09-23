@@ -6,14 +6,16 @@
 			<th>Product</th>
 			<th>Comment</th>
 			<th>Date</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @comments.each do |comment| %>
 			<tr>
-				<td><%= comment.product.product %></td>
+				<td><%= comment.product.product %></a></td>
 				<td><%= comment.comment %></td>
 				<td><%= comment.created_at.strftime('%b %d, %Y') %></td>
+				<td><a href='/products/<%= comment.product_id %>'>Show</a></td>
 			</tr>
 		<% end %>
 	</tbody>
