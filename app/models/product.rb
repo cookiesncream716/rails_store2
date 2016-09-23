@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   validates :category_id, presence: true
   def self.get_all
   	puts '*********** get all ***************'
-  	self.all
+  	self.all.order(:category_id)
   end
   def self.get_one(id)
   	puts '33333333333 get one 333333333333333'

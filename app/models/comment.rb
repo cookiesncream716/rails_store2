@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   	self.where(product_id: id)
   end
   def self.get_all
-  	self.all
+  	self.all.order(:product_id)
   end
   def self.create_comment(comment)
   	new_comment = self.new(comment)
